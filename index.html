@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Post Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Api Client</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1 class="my-3 text-center">Welcome to Post Master </h1>
+</div>
+<div class="container" style="width: 70vw">
+    <!--URL BOX-->
+    <div class="input-group mb-3">
+        <label for="url" class="input-group-text" id="basic-addon3">URL: </label>
+        <input type="url" placeholder="Enter URL Her" class="form-control" id="url" aria-describedby="basic-addon3">
+    </div>
+    <!--Request Type Box-->
+    <div class="d-flex h5 my-4">
+        <span>Request Type: </span>
+        <div class="form-check form-switch mx-lg-5">
+            <label class="form-check-label" for="get">GET</label>
+            <input class="form-check-input" type="checkbox" role="switch" id="get" checked>
+        </div>
+        <div class="form-check form-switch mx-3">
+            <label class="form-check-label" for="post">POST</label>
+            <input class="form-check-input" type="checkbox" role="switch" id="post">
+        </div>
+    </div>
+    <!--Content Type Box -->
+    <div class="d-flex h5 my-lg-5">
+        <span>Content Type: </span>
+        <div class="form-check form-switch mx-lg-5">
+            <label class="form-check-label" for="json">JSON</label>
+            <input class="form-check-input" type="checkbox" role="switch" id="json" checked>
+        </div>
+        <div class="form-check form-switch mx-3">
+            <label class="form-check-label" for="customP">Custom Parameters</label>
+            <input class="form-check-input" type="checkbox" role="switch" id="customP">
+        </div>
+    </div>
+    <!--Parameter Box ==> This will hide if Json is Checked in -->
+    <div id="parameterBox">
+        <form class="d-flex justify-content-between h5 my-3" style="flex-wrap: wrap">
+            <label class="form-label my-2" for="paraKey1">Parameter 1</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control paraKey" id="paraKey1" placeholder="Enter Parameter 1 key"
+                       disabled>
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control paraVal" id="paraVal1" placeholder="Enter Parameter 1 value"
+                       disabled>
+            </div>
+            <button type="button" id="add" class="btn btn-primary" style="width: 50px" disabled>+</button>
+        </form>
+    </div>
+    <div id="newParams"></div>
+    <!-- JSON request Box ==> This will hide if Custom parameter is clicked -->
+    <div class="mb-3 h5" id="RequetJsonBox">
+        <label for="jsonBox" class="form-label">JsonBox: </label>
+        <textarea class="form-control" id="jsonBox" rows="3" style="border: 1px solid black"></textarea>
+    </div>
+    <!-- Submit Button -->
+    <button id="submit" class="btn btn-primary"> Submit</button>
+    <!-- Alert For copy Json-->
+    <div id="copyAlert" class="alert alert-primary my-4" style="display: none" role="alert">
+        Copied To ClipBoard
+    </div>
+    <!-- Response Box -->
+    <div class="mb-3 h5 my-2" id="ResponseBox" style="position: relative; width: 70vw">
+        <label for="response" class="form-label">Rsponse: </label>
+        <textarea class="form-control" id="response" rows="8" placeholder="Your Response Will Show Here"
+                  style="border: 1px solid black; background-color: black; color: white; cursor: auto"
+                  disabled></textarea>
+        <button id="copy" class="btn btn-outline-dark" style="position: absolute; right: 0; top: 0"> Copy Text</button>
+    </div>
+</div>
+<div style="height: 30vh"></div>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+</html>
